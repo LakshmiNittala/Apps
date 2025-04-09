@@ -52,7 +52,7 @@ if prompt := st.chat_input("Type your message here..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Get the DeepSeek response
+    # Get response from model
     try:
         with st.spinner("Generating response..."): #Show generating text
             completion = client.chat.completions.create(
