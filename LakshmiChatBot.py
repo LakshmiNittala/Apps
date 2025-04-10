@@ -7,7 +7,8 @@ MODELS = {
     "DeepSeek V3 Chat": "deepseek/deepseek-chat-v3-0324:free",
     "Google Gemini Pro 2.5":"google/gemini-2.5-pro-exp-03-25:free",
     "Meta Llama 70B":"meta-llama/llama-3.3-70b-instruct:free",
-    "Mistral Small 3.1 24B":"mistralai/mistral-small-3.1-24b-instruct:free"
+    "Mistral Small 3.1 24B":"mistralai/mistral-small-3.1-24b-instruct:free",
+    "NVIDIA Nemotron Ultra 253B v1":"nvidia/llama-3.1-nemotron-ultra-253b-v1:free"
 }
 
 
