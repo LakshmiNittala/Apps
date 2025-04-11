@@ -11,7 +11,7 @@ COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 WORKDIR /app/
-COPY ./streamlit_app.py /app/streamlit_app.py
+COPY ./streamlit_app.py /app/Langchain_Chatbot.py
 
-CMD ["streamlit", "run", "streamlit_app.py", "--server.port", "8080"]
+CMD ["streamlit", "run", "Langchain_Chatbot.py", "--server.port", "8080"]
 
