@@ -2,7 +2,6 @@ import streamlit as st
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 from langchain_openai import ChatOpenAI
-import os
 
 # Set up OpenRouter API key and LLM
 llm = ChatOpenAI(
