@@ -6,7 +6,7 @@ import os
 
 # Set up OpenRouter API key and LLM
 llm = ChatOpenAI(
-    model="openai/gpt-4o",
+    model=  "deepseek/deepseek-chat-v3-0324:free",
     openai_api_key= st.secrets.api_key,
     base_url="https://openrouter.ai/api/v1"
 )
