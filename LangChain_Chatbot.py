@@ -5,10 +5,9 @@ from langchain_openai import ChatOpenAI
 import os
 
 # Set up OpenRouter API key and LLM
-os.environ["OPENROUTER_API_KEY"] = "your_api_key_here"
 llm = ChatOpenAI(
     model="openai/gpt-4o",
-    openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+    openai_api_key= st.secrets.api_key,
     base_url="https://openrouter.ai/api/v1"
 )
 
