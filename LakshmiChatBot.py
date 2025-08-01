@@ -12,7 +12,7 @@ MODELS = {
 
 
 # Streamlit UI Setup
-st.set_page_config(page_title="Multi-Model Chat", layout="wide")
+st.set_page_config(page_title="Lakshmi's Chatbot to access Free models", layout="wide")
 st.title("Multi-Model Chatbot")
 
 # Define API key
