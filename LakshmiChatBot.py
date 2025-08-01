@@ -14,7 +14,7 @@ MODELS = {
 # Streamlit UI Setup
 st.set_page_config(page_title="Lakshmi's Chatbot", layout="wide")
 st.title("Lakshmi's Chatbot to access Free LLMs")
-st.sub_title("Models hosted on openrouter.ai")
+st.subheader("Models hosted on openrouter.ai")
 
 # Define API key
 api_key = st.secrets.api_key
