@@ -13,7 +13,7 @@ MODELS = {
 
 # Streamlit UI Setup
 st.set_page_config(page_title="Lakshmi's Chatbot", layout="wide")
-st.title("Lakshmi's Chatbot to access Free models")
+st.title("Lakshmi's Chatbot to access Free LLMs")
 
 # Define API key
 api_key = st.secrets.api_key
