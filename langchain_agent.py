@@ -43,7 +43,7 @@ if "agent_executor" not in st.session_state:
     with st.spinner("Initializing the agent... Please wait."):
         # Initialize the LLM (The Agent's Brain)
         llm = ChatOpenAI(
-            model="deepseek/deepseek-chat",
+            model="deepseek/deepseek-r1-0528:free",
             temperature=0,
             openai_api_key=OPENROUTER_API_KEY,
             openai_api_base="https://openrouter.ai/api/v1",
