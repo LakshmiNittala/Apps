@@ -3,7 +3,7 @@
 # Open your terminal or command prompt and run these commands:
 # pip install streamlit langchain langchain-openai python-dotenv google-search-results
 
-!pip install -U langchain-community
+pip install -U langchain-community
 import os
 import streamlit as st
 from langchain_openai import ChatOpenAI
