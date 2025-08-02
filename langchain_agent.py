@@ -6,6 +6,7 @@
 pip install -U langchain-community
 import os
 import streamlit as st
+import langchain-community
 from langchain_openai import ChatOpenAI
 from langchain.agents import load_tools, initialize_agent, AgentType
 
