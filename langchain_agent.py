@@ -5,7 +5,6 @@
 
 import os
 import streamlit as st
-from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import load_tools, initialize_agent, AgentType
 
