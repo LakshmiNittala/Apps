@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import load_tools, initialize_agent, AgentType
 
+
 # --- 2. API Key Setup ---
 # For local development, we can still use a .env file.
 # Create a file named ".env" in the same directory as this script
@@ -17,20 +18,16 @@ from langchain.agents import load_tools, initialize_agent, AgentType
 # OPENROUTER_API_KEY="sk-or-..."
 # SERPAPI_API_KEY="..."
 #
-# When deploying to Streamlit Community Cloud, you will use st.secrets instead.
-
-load_dotenv()
+# Define API keys
+OPENROUTER_API_KEY = st.secrets.OPENROUTER_API_KEY
+serpapi = st.secrets.serpapi
 
 # --- App UI Configuration ---
 st.set_page_config(page_title="LangChain Agent with DeepSeek", page_icon="🤖")
 st.title("🤖 LangChain Agent with DeepSeek")
 st.caption("This app allows you to ask questions to an AI agent powered by DeepSeek and LangChain.")
 
-# Check for API keys and display a warning if they are not found
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
-
-if not OPENROUTER_API_KEY or not SERPAPI_API_KEY:
+if not OPENROUTER_API_KEY or not serpapi:
     st.warning(
         "API keys not found. Please create a `.env` file in the project root "
         "and add your `OPENROUTER_API_KEY` and `SERPAPI_API_KEY`."
@@ -55,6 +52,7 @@ if "agent_executor" not in st.session_state:
 
         # Load the Tools (The Agent's Skills)
         tools = load_tools(["serpapi"], llm=llm)
+        tools = load_tools(["serpapi"], llm=llm, serpapi_api_key=serpapi)
 
         # Initialize the Agent
         # We use a conversational agent type to allow for chat history.
