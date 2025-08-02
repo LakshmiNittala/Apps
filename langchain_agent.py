@@ -52,7 +52,7 @@ if "agent_executor" not in st.session_state:
 
         # Load the Tools (The Agent's Skills)
         tools = load_tools(["serpapi"], llm=llm)
-        tools = load_tools(["serpapi"], llm=llm, serpapi_api_key=serpapi)
+       # tools = load_tools(["serpapi"], llm=llm, serpapi_api_key=serpapi)
 
         # Initialize the Agent
         # We use a conversational agent type to allow for chat history.
