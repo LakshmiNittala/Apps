@@ -9,7 +9,7 @@ import langchain_community
 from langchain_openai import ChatOpenAI
 from langchain.agents import load_tools, initialize_agent, AgentType
 from langchain_core.messages import AIMessage, HumanMessage
-
+from langchain.agents import AgentExecutor
 
 # --- 2. API Key Setup ---
 # For local development, we can still use a .env file.
