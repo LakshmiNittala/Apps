@@ -1,8 +1,4 @@
 # --- 1. Installation ---
-# First, you need to install the required Python libraries.
-# Open your terminal or command prompt and run these commands:
-# pip install streamlit langchain langchain-openai python-dotenv google-search-results
-
 import os
 import streamlit as st
 import langchain_community
@@ -12,13 +8,6 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain.agents import AgentExecutor
 
 # --- 2. API Key Setup ---
-# For local development, we can still use a .env file.
-# Create a file named ".env" in the same directory as this script
-# and add your API keys like this:
-#
-# OPENROUTER_API_KEY="sk-or-..."
-# SERPAPI_API_KEY="..."
-#
 # Define API keys
 OPENROUTER_API_KEY = st.secrets.OPENROUTER_API_KEY
 serpapi = st.secrets.serpapi
