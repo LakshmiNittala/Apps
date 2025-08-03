@@ -81,17 +81,29 @@ if prompt := st.chat_input("Ask a question..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Display assistant response in chat message container
+    # # Display assistant response in chat message container
+    # with st.chat_message("assistant"):
+    #     # Use an expander to show the agent's "thinking" process
+    #     with st.expander("Agent's Thought Process"):
+    #         try:
+    #             # The st.write_stream function is not standard.
+    #             # A common way to capture verbose output is to redirect stdout.
+    #             # However, for a cleaner approach in Streamlit, we'll just run the agent
+    #             # and the verbose output will appear in the terminal.
+    #             # The final answer will be displayed in the app.
+    #             response = st.session_state.agent_executor.run(prompt)
+    #             st.markdown(response)
+    #         except Exception as e:
+    #             response = f"An error occurred: {e}"
+    #             st.error(response)
+
+      # Display assistant response in chat message container
     with st.chat_message("assistant"):
-        # Use an expander to show the agent's "thinking" process
         with st.expander("Agent's Thought Process"):
             try:
-                # The st.write_stream function is not standard.
-                # A common way to capture verbose output is to redirect stdout.
-                # However, for a cleaner approach in Streamlit, we'll just run the agent
-                # and the verbose output will appear in the terminal.
-                # The final answer will be displayed in the app.
-                response = st.session_state.agent_executor.run(prompt)
+                # Correctly call the agent with a dictionary and extract the output
+                result = st.session_state.agent_executor.invoke({"input": prompt})
+                response = result['output']
                 st.markdown(response)
             except Exception as e:
                 response = f"An error occurred: {e}"
