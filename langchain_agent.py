@@ -37,13 +37,6 @@ if not OPENROUTER_API_KEY or not serpapi:
 
 # --- Agent Initialization ---
 # We initialize the agent once and store it in session state to avoid re-initializing on every interaction.
-# (Somewhere in your app setup)
-agent_executor = AgentExecutor(
-    agent=agent, 
-    tools=tools, 
-    verbose=True, 
-    handle_parsing_errors=True  # Add this line
-)
 
 if "agent_executor" not in st.session_state:
     with st.spinner("Initializing the agent... Please wait."):
@@ -69,7 +62,8 @@ if "agent_executor" not in st.session_state:
             tools,
             llm,
             agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
-            verbose=True
+            verbose=True,
+            handle_parsing_errors=True
         )
 
 # Initialize chat history
