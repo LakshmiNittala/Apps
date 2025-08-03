@@ -75,11 +75,11 @@ if prompt := st.chat_input("Ask a question..."):
 
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
+        # Use an expander to show the agent's "thinking" process
         with st.expander("Agent's Thought Process"):
+            st.info("The agent's step-by-step reasoning appears in your terminal because `verbose=True` is set.")
             try:
                 # 1. Format the chat history from session_state
-                # We are excluding the last message (the new prompt) from the history
-                # as it's passed separately in the "input" key.
                 formatted_chat_history = []
                 for msg in st.session_state.messages[:-1]:
                     if msg["role"] == "user":
@@ -87,7 +87,7 @@ if prompt := st.chat_input("Ask a question..."):
                     elif msg["role"] == "assistant":
                         formatted_chat_history.append(AIMessage(content=msg["content"]))
 
-                # 2. Call the agent with BOTH input and chat_history
+                # 2. Call the agent. The agent's final answer is in the 'output' key.
                 result = st.session_state.agent_executor.invoke(
                     {
                         "input": prompt,
@@ -95,12 +95,15 @@ if prompt := st.chat_input("Ask a question..."):
                     }
                 )
                 response = result['output']
-                st.markdown(response)
+                # You can write the raw thought process here for debugging if you want
+                st.write(result)
 
             except Exception as e:
                 response = f"An error occurred: {e}"
                 st.error(response)
 
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+        # Display the final, rendered response OUTSIDE the expander
+        st.markdown(response)
 
+    # Add assistant's final response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
