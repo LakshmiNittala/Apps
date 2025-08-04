@@ -141,4 +141,3 @@ if prompt := st.chat_input("Ask a question..."):
 
     # Finally, add the assistant's response to the chat history so it's remembered for the next turn.
     st.session_state.messages.append({"role": "assistant", "content": response})
-�
