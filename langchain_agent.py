@@ -48,7 +48,7 @@ if "agent_executor" not in st.session_state:
         # Step A: Initialize the LLM (The Agent's "Brain")
         # We're using the ChatOpenAI class to connect to a model hosted on OpenRouter.
         llm = ChatOpenAI(
-            model="deepseek/deepseek-chat",  # Specifies the exact model we want to use.
+            model="deepseek/deepseek-r1-0528:free",  # Specifies the exact model we want to use.
             temperature=0,  # A temperature of 0 makes the model's responses more deterministic and less random.
             openai_api_key=OPENROUTER_API_KEY,  # The API key for authentication.
             openai_api_base="https://openrouter.ai/api/v1",  # The server endpoint for OpenRouter.
